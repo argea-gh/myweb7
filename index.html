@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herbaprima - Solusi Herbal Modern untuk Hidup Sehat Alami</title>
+    <!-- SEO DASAR -->
+    <meta name="description" content="Toko online produk kesehatan herbal halal - Madu Premium, Minuman Sehat, Suplemen Herbal, dan Perawatan Alami. Kualitas terjamin dan aman untuk konsumsi.">
+    <meta property="og:title" content="Herbaprima - Produk Herbal Sehat Halal">
+    <meta property="og:description" content="Belanja produk kesehatan herbal halal terbaik di Herbaprima. Madu, suplemen, minyak herba, dan perawatan alami.">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6">
+    <meta property="og:url" content="https://herbaprima.com">
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS ANIMASI -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- CSS KUSTOM -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- FAVICON (LOGO) -->
+    <link rel="icon" href="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" type="image/png">
+</head>
+<body>
+    <!-- PRELOADER -->
+    <div class="preloader">
+        <img src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="Herbaprima Logo" class="preloader-logo">
+    </div>
+
+    <!-- HEADER STICKY -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- LOGO -->
+                <a href="index.html" class="logo">
+                    <img src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="Herbaprima Logo" class="logo-img">
+                    <span class="logo-text">Herbaprima</span>
+                </a>
+
+                <!-- MENU DESKTOP -->
+                <nav class="nav-desktop">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                        <li class="nav-item"><a href="#kategori" class="nav-link">Kategori</a></li>
+                        <li class="nav-item"><a href="#produk" class="nav-link">Produk</a></li>
+                        <li class="nav-item"><a href="#terlaris" class="nav-link">Terlaris</a></li>
+                        <li class="nav-item"><a href="#testimoni" class="nav-link">Testimoni</a></li>
+                        <li class="nav-item"><a href="#kontak" class="nav-link">Kontak</a></li>
+                        <li class="nav-item">
+                            <button class="cart-btn" id="cartBtn">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count" id="cartCount">0</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- MENU MOBILE (HAMBURGER) -->
+                <button class="hamburger-btn" id="hamburgerBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav class="nav-mobile" id="navMobile">
+                    <ul class="nav-mobile-list">
+                        <li class="nav-mobile-item"><a href="#home" class="nav-mobile-link">Home</a></li>
+                        <li class="nav-mobile-item"><a href="#kategori" class="nav-mobile-link">Kategori</a></li>
+                        <li class="nav-mobile-item"><a href="#produk" class="nav-mobile-link">Produk</a></li>
+                        <li class="nav-mobile-item"><a href="#terlaris" class="nav-mobile-link">Terlaris</a></li>
+                        <li class="nav-mobile-item"><a href="#testimoni" class="nav-mobile-link">Testimoni</a></li>
+                        <li class="nav-mobile-item"><a href="#kontak" class="nav-mobile-link">Kontak</a></li>
+                        <li class="nav-mobile-item">
+                            <button class="cart-btn mobile-cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count" id="mobileCartCount">0</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- KERANJANG MODAL -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3>Keranjang Belanja</h3>
+                <button class="close-modal-btn" id="closeCartModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Keranjang Anda kosong</p>
+            </div>
+            <div class="cart-summary" id="cartSummary">
+                <p class="total-text">Total: <span id="cartTotal">Rp 0</span></p>
+                <div class="cart-buttons">
+                    <button class="btn btn-outline" id="clearCartBtn">Reset Keranjang</button>
+                    <button class="btn btn-primary" id="checkoutCartBtn">Checkout via WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY MODAL -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- DETAIL PRODUK MODAL -->
+    <div class="product-modal" id="productModal">
+        <div class="product-modal-content">
+            <button class="close-modal-btn" id="closeProductModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="product-modal-body">
+                <div class="product-modal-img">
+                    <img id="modalProductImg" src="" alt="Gambar Produk">
+                </div>
+                <div class="product-modal-details">
+                    <h3 id="modalProductName"></h3>
+                    <p class="price" id="modalProductPrice"></p>
+                    <h4>Deskripsi</h4>
+                    <p id="modalProductDesc"></p>
+                    <h4>Manfaat</h4>
+                    <ul id="modalProductBenefits"></ul>
+                    <h4>Komposisi</h4>
+                    <p id="modalProductIngredients"></p>
+                    <div class="product-modal-buttons">
+                        <button class="btn btn-primary" id="addToCartModalBtn">Tambah ke Keranjang</button>
+                        <a href="#" id="whatsappBuyBtn" class="btn btn-success">Beli via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-outline full-width" id="closeProductModalBtn">Tutup</button>
+        </div>
+    </div>
+
+    <!-- HERO SECTION (CAROUSEL) -->
+    <section class="hero" id="home">
+        <div class="hero-carousel" id="heroCarousel">
+            <div class="carousel-slide active">
+                <img src="https://hni.net/public/front/img/produk/sevel-stamina_11-09-25_.png" alt="Produk Sevel Stamina">
+                <div class="carousel-caption">
+                    <h1>Herbaprima</h1>
+                    <p>Solusi Herbal Modern untuk Hidup Sehat Alami</p>
+                    <div class="cta-buttons">
+                        <a href="#produk" class="btn btn-primary">Lihat Produk</a>
+                        <a href="#kontak" class="btn btn-outline">Hubungi Kami</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://hni.net/public/front/img/produk/hni-health-3_18-11-24_.png" alt="Produk Madu HNI Health">
+                <div class="carousel-caption">
+                    <h1>Madu Premium Halal</h1>
+                    <p>Dari sumber alam terbaik untuk kesehatan Anda</p>
+                    <div class="cta-buttons">
+                        <a href="#kategori" class="btn btn-primary">Lihat Kategori</a>
+                        <a href="#kontak" class="btn btn-outline">Hubungi Kami</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://hni.net/public/front/img/produk/gluta2_27-10-22_.png" alt="Produk Hania Gluta Juicy Drink">
+                <div class="carousel-caption">
+                    <h1>Perawatan Kulit Alami</h1>
+                    <p>Didukung oleh bahan herbal berkualitas</p>
+                    <div class="cta-buttons">
+                        <a href="#produk" class="btn btn-primary">Lihat Produk</a>
+                        <a href="#kontak" class="btn btn-outline">Hubungi Kami</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://hni.net/public/front/img/produk/SABUN%20KOLAGEN-4_07-01-19_.png" alt="Produk Sabun Kolagen">
+                <div class="carousel-caption">
+                    <h1>Perawatan Pribadi Herbal</h1>
+                    <p>Aman dan nyaman untuk semua jenis kulit</p>
+                    <div class="cta-buttons">
+                        <a href="#kategori" class="btn btn-primary">Lihat Kategori</a>
+                        <a href="#kontak" class="btn btn-outline">Hubungi Kami</a>
+                    </div>
+                </div>
+            </div>
+            <!-- TOMBOL NAVIGASI CAROUSEL -->
+            <button class="carousel-btn prev" id="prevSlideBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next" id="nextSlideBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <!-- INDICATOR CAROUSEL -->
+            <div class="carousel-indicators">
+                <button class="indicator active" data-slide="0"></button>
+                <button class="indicator" data-slide="1"></button>
+                <button class="indicator" data-slide="2"></button>
+                <button class="indicator" data-slide="3"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- KATEGORI PRODUK -->
+    <section class="kategori" id="kategori" data-aos="fade-up">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kategori Produk</h2>
+                <p>Pilih kategori yang sesuai dengan kebutuhan kesehatan Anda</p>
+            </div>
+            <div class="kategori-grid">
+                <a href="produk/minuman_sehat/index.html" class="kategori-card">
+                    <i class="fas fa-glass-martini-alt"></i>
+                    <h3>Minuman Sehat</h3>
+                </a>
+                <a href="produk/madu_premium/index.html" class="kategori-card">
+                    <i class="fas fa-honeybee"></i>
+                    <h3>Madu Premium</h3>
+                </a>
+                <a href="produk/minyak_herba/index.html" class="kategori-card">
+                    <i class="fas fa-oil-can"></i>
+                    <h3>Minyak Herba</h3>
+                </a>
+                <a href="produk/aneka_herbal/index.html" class="kategori-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Aneka Herbal</h3>
+                </a>
+                <a href="produk/perawatan_kulit/index.html" class="kategori-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Perawatan Kulit</h3>
+                </a>
+                <a href="produk/perawatan_pribadi/index.html" class="kategori-card">
+                    <i class="fas fa-shower"></i>
+                    <h3>Perawatan Pribadi</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DAFTAR PRODUK -->
+    <section class="produk" id="produk" data-aos="fade-up">
+        <div class="container">
+            <div class="section-header">
+                <h2>Semua Produk</h2>
+                <p>Produk herbal halal berkualitas tinggi untuk kesehatan Anda</p>
+            </div>
+            <div class="produk-grid" id="produkGrid">
+                <!-- PRODUK AKAN DITAMBAHKAN OLEH JAVASCRIPT -->
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUK TERLARIS -->
+    <section class="terlaris" id="terlaris" data-aos="fade-up">
+        <div class="container">
+            <div class="section-header">
+                <h2>Produk Terlaris</h2>
+                <p>Produk pilihan pelanggan dengan kualitas terbukti</p>
+            </div>
+            <div class="produk-grid" id="terlarisGrid">
+                <!-- PRODUK TERLARIS AKAN DITAMBAHKAN OLEH JAVASCRIPT -->
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONI PELANGGAN -->
+    <section class="testimoni" id="testimoni" data-aos="fade-up">
+        <div class="container">
+            <div class="section-header">
+                <h2>Apa Kata Mereka?</h2>
+                <p>Pengalaman pelanggan dengan produk Herbaprima</p>
+            </div>
+            <div class="testimoni-grid">
+                <div class="testimoni-card">
+                    <img src="https://ui-avatars.com/api/?name=Siti+Aisyah&background=2E7D32&color=white" alt="Siti Aisyah" class="testimoni-avatar">
+                    <h3>Siti Aisyah</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Madu Pahit Herbaprima benar-benar membantu meningkatkan stamina saya. Rasanya sedikit pahit tapi hasilnya luar biasa!"</p>
+                </div>
+                <div class="testimoni-card">
+                    <img src="https://ui-avatars.com/api/?name=Budi+Santoso&background=2E7D32&color=white" alt="Budi Santoso" class="testimoni-avatar">
+                    <h3>Budi Santoso</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"Centella Teh Sinergi membuat tubuh saya lebih segar
+                    </p>
+                </div>
+                <div class="testimoni-card">
+                    <img src="https://ui-avatars.com/api/?name=Rina+Wati&background=2E7D32&color=white" alt="Rina Wati" class="testimoni-avatar">
+                    <h3>Rina Wati</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Sabun Kolagen membuat kulit wajah saya lebih lembut dan cerah. Sudah 6 bulan pakai dan hasilnya sangat memuaskan!"</p>
+                </div>
+                <div class="testimoni-card">
+                    <img src="https://ui-avatars.com/api/?name=Agus+Priyo&background=2E7D32&color=white" alt="Agus Priyo" class="testimoni-avatar">
+                    <h3>Agus Priyo</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p>"HNI Coffee tidak bikin jantung berdebar dan rasa nya enak. Cocok banget untuk sarapan pagi saya setiap hari."</p>
+                </div>
+                <div class="testimoni-card">
+                    <img src="https://ui-avatars.com/api/?name=Dewi+Lestari&background=2E7D32&color=white" alt="Dewi Lestari" class="testimoni-avatar">
+                    <h3>Dewi Lestari</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"Zareen Bright Glow Serum membantu mengurangi noda hitam di wajah saya. Produk herbal yang benar-benar bekerja!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK SECTION -->
+    <section class="kontak" id="kontak" data-aos="fade-up">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hubungi Kami</h2>
+                <p>Butuh bantuan atau ingin bertanya tentang produk? Silakan hubungi kami</p>
+            </div>
+            <div class="kontak-content">
+                <div class="kontak-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Alamat</h3>
+                            <p>Jalan Sehat 123, Kecamatan Sukoharjo, Kota Surakarta, Jawa Tengah 57126</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Jam Operasional</h3>
+                            <p>Senin - Sabtu: 08.00 WIB - 18.00 WIB</p>
+                            <p>Minggu & Hari Libur Nasional: 09.00 WIB - 15.00 WIB</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p><a href="https://wa.me/6282241900467" target="_blank">+62 822-4190-0467</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:info@herbaprima.com">info@herbaprima.com</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-share-alt"></i>
+                        <div>
+                            <h3>Media Sosial</h3>
+                            <div class="social-links">
+                                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="kontak-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.163883532757!2d110.82275311476903!3d-7.55675017659235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a14a2911a1685%3A0x43e327e6f6947d86!2sJalan%20Sehat%2C%20Sukoharjo!5e0!3m2!1sid!2sid!4v1699999999999!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="Herbaprima Logo" class="logo-img">
+                        <span class="logo-text">Herbaprima</span>
+                    </a>
+                    <p class="brand-desc">Solusi Herbal Modern untuk Hidup Sehat Alami. Semua produk kami terjamin halal dan berkualitas tinggi.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigasi Cepat</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#kategori">Kategori</a></li>
+                        <li><a href="#produk">Produk</a></li>
+                        <li><a href="tentang_kami.html">Tentang Kami</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Kategori Produk</h4>
+                    <ul>
+                        <li><a href="produk/minuman_sehat/index.html">Minuman Sehat</a></li>
+                        <li><a href="produk/madu_premium/index.html">Madu Premium</a></li>
+                        <li><a href="produk/minyak_herba/index.html">Minyak Herba</a></li>
+                        <li><a href="produk/aneka_herbal/index.html">Aneka Herbal</a></li>
+                        <li><a href="produk/perawatan_kulit/index.html">Perawatan Kulit</a></li>
+                        <li><a href="produk/perawatan_pribadi/index.html">Perawatan Pribadi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Hubungi Kami</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Jalan Sehat 123, Surakarta</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="https://wa.me/6282241900467">+62 822-4190-0467</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@herbaprima.com">info@herbaprima.com</a></p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024 Herbaprima. Hak Cipta Dilindungi.</p>
+                </div>
+                <div class="footer-mode">
+                    <button class="mode-toggle-btn" id="modeToggleBtn">
+                        <i class="fas fa-moon"></i> <span>Mode Gelap</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FITUR TAMBAHAN -->
+    <!-- SCROLL TO TOP BUTTON -->
+    <button class="scroll-to-top-btn" id="scrollToTopBtn">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/6282241900467?text=Halo Herbaprima, saya ingin bertanya tentang produk Anda." target="_blank" class="floating-wa-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPT -->
+    <!-- AOS ANIMASI -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- JAVASCRIPT KUSTOM -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
